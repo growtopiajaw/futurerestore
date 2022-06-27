@@ -2,8 +2,11 @@ name: Futurerestore
 
 on:
   push:
-  pull_request:
-  workflow_dispatch:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   macOS:
