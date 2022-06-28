@@ -1,9 +1,11 @@
 name: Futurerestore
-
 on:
   push:
-  pull_request:
-  workflow_dispatch:
+    branches: [ win-ci ]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   Win-x64:
